@@ -1,0 +1,10 @@
+langchain_core
+python-dotenv
+streamlit
+langchain_community
+langserve
+pypdf
+faiss-cpu
+wikipedia
+arxiv
+streamlit
