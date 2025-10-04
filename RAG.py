@@ -72,9 +72,8 @@ agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 import streamlit as st 
 st.title("RAG Pipeline with Multiple Data Sources")
 st.subheader("by - Sanket Daphal")
-st.write("Ask me anything!")    
-st.selectbox("Select a tool where you want to search", options=["Document_Search", "Wikipedia", "Arxiv"])
-st.selectbox("Select a model", options=["gemini-2.5-flash", "gemini-2.5-pro", "gemini-1.5-turbo", "gemini-1.5-pro", "gemini-1.5-flash", "gemini-1.0-turbo", "gemini-1.0-flash"])
+st.write("You can ask me about me or anything you want to search from wikipedia or arxiv")    
+ 
 input_text = st.text_input("Enter your question here")
 
 flag = False
