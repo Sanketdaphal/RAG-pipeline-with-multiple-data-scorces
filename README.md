@@ -27,23 +27,6 @@ https://rag-pipeline-with-multiple-data-scorces-pblxdxaft8m8gnhc9ejwnz.streamlit
 - **Google Gemini API** (via `ChatGoogleGenerativeAI`)  
 
 ---
+ 
 
-## 📂 Project Structure
-
-
-📂 rag-pipeline-with-multiple-data-sources
-│── RAG.py                 # Main application script (Streamlit app)
-│── requirements.txt       # Python dependencies
-│── README.md              # Project documentation
-│── .env                   # API keys (not pushed to GitHub)
-│
-├── 📂 venv/               # Virtual environment (should be in .gitignore)
-│
-├── 📂 data/               # Store input files
-│    └── SDE.pdf           # Example PDF used for RAG
-│
-├── 📂 vector_store/       # Saved FAISS or Chroma DB (optional)
-│
-└── 📂 .streamlit/         # Streamlit config (if needed)
-     └── config.toml
 
