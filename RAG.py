@@ -7,16 +7,16 @@ wiki = WikipediaQueryRun(api_wrapper=api_wrapper)
   
 
 import os
-os.environ["GOOGLE_API_KEY"] = "AIzaSyC3aaL0k62ZnEruvtzVV_YnIevmKFBalIs"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyB8qCeghFt9zK628nr4nvmvcvUOoC8IInI"
 
 #%pip install --upgrade --quiet  langchain-google-genai
 
-from langchain_community.document_loaders import WebBaseLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-loader = WebBaseLoader("https://python.langchain.com/docs/introduction/?_gl=1*wpeed6*_gcl_au*NjE5MjI3MjMxLjE3NTk0MjA5MjM.*_ga*MTY2NTU3MzIwMS4xNzU5NDIwOTIz*_ga_47WX3HKKY2*czE3NTk1MTUxODIkbzYkZzEkdDE3NTk1MTUyMjAkajIyJGwwJGgw")
+loader = PyPDFLoader("SDE.pdf")
 docs = loader.load()
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
@@ -29,7 +29,7 @@ retriver = vectordb.as_retriever()
 
 from langchain.tools.retriever import create_retriever_tool
 retrieval_tool = create_retriever_tool(
-    retriever=retriver, name="Document_Search", description="useful for when you need to find information about the python langchain"
+    retriever=retriver, name="Document_Search", description="useful to know Daphal Sanket Anil"
 )
 
 
@@ -41,7 +41,7 @@ arxiv_wrapper = ArxivAPIWrapper(top_k_results=1,doc_content_chars_max=250)
 arxiv = ArxivQueryRun(api_wrapper=arxiv_wrapper)
  
 
-tools = [retrieval_tool, wiki, arxiv]
+tools = [retrieval_tool]
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -70,8 +70,8 @@ agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 
 #streamlit framework
 import streamlit as st 
-st.title("RAG Pipeline with Multiple Data Scources")
- 
+st.title("RAG Pipeline with Multiple Data Sources")
+st.subheader("by - Sanket Daphal")
 st.write("Ask me anything!")    
 st.selectbox("Select a tool where you want to search", options=["Document_Search", "Wikipedia", "Arxiv"])
 st.selectbox("Select a model", options=["gemini-2.5-flash", "gemini-2.5-pro", "gemini-1.5-turbo", "gemini-1.5-pro", "gemini-1.5-flash", "gemini-1.0-turbo", "gemini-1.0-flash"])
@@ -84,12 +84,17 @@ if input_text:
     st.write(response['output'])
     flag = True
  
-if flag:
-    st.slider("Are you satisfied with the answer?", min_value=1, max_value=10, step=1)
-    flag2 = True
-    if flag2:
-        st.success("Thank you for your feedback!")
+ 
     
+if flag:
+    st.write("Are you satisfy with the response?")
+    if st.button("Yes"):
+        st.write("Great! Glad you are satisfied with the response.")
+    if st.button("No"):
+        feedback = st.text_area("Please provide your feedback here")
+        if feedback:
+            st.write("Thank you for your feedback!")     
 
+    
 
 #agent_executor.invoke({"input": "what is langchain?"})
