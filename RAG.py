@@ -72,6 +72,7 @@ agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 import streamlit as st 
 st.title("RAG Pipeline with Multiple Data Sources")
 st.subheader("by - Sanket Daphal")    
+st.text("You can ask me about Sanket, or search seamlessly across Wikipedia and Arxiv — all in one place")
  
 input_text = st.text_input("Enter your question here")
 
@@ -96,5 +97,6 @@ if flag:
     
 
 #agent_executor.invoke({"input": "what is langchain?"})
+
 
 
