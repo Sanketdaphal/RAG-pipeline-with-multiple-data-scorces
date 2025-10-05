@@ -7,10 +7,9 @@ pypdf
 faiss-cpu
 wikipedia
 arxiv
-
 streamlit
 langchain
-ollama
 langchain-google-genai
  
+
 
