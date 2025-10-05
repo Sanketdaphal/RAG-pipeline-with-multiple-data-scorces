@@ -2,8 +2,8 @@
 
 This project implements a **Retrieval-Augmented Generation (RAG) pipeline** using **LangChain**, **Google Gemini**, and multiple external data sources such as **PDFs, Wikipedia, and Arxiv**.  
 The app is deployed with **Streamlit** and provides an interactive chatbot interface.  
-You can try it here
-https://rag-pipeline-with-multiple-data-scorces-pblxdxaft8m8gnhc9ejwnz.streamlit.app/
+You can try it here 
+https://rag-pipeline-with-multiple-data-sources-fdqih5uzkwm46qtt8c8hkh.streamlit.app/
 
 ---
 
@@ -28,5 +28,6 @@ https://rag-pipeline-with-multiple-data-scorces-pblxdxaft8m8gnhc9ejwnz.streamlit
 
 ---
  
+
 
 
