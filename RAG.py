@@ -8,7 +8,7 @@ wiki = WikipediaQueryRun(api_wrapper=api_wrapper)
   
 
 import os
-os.environ["GOOGLE_API_KEY"] = "AIzaSyC_hAI918NvY5Md50LML3_obPIHf1kv_KQ"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyD6J10z6yVXGGk6CoiYcZFQ9L1l4arz90U"
 
 #%pip install --upgrade --quiet  langchain-google-genai
 
@@ -98,5 +98,6 @@ if flag:
     
 
 #agent_executor.invoke({"input": "what is langchain?"})
+
 
 
