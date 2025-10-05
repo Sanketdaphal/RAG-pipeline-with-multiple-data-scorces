@@ -16,7 +16,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-loader = PyPDFLoader("SDE.pdf")
+loader = PyPDFLoader("OFF_Campus.pdf")
 docs = loader.load()
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
@@ -96,4 +96,5 @@ if flag:
     
 
 #agent_executor.invoke({"input": "what is langchain?"})
+
 
