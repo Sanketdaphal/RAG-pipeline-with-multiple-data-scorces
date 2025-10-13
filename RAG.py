@@ -7,8 +7,7 @@ api_wrapper = WikipediaAPIWrapper(top_k_results=1,doc_content_chars_max=250)
 wiki = WikipediaQueryRun(api_wrapper=api_wrapper)
   
 
-import os
-os.environ["GOOGLE_API_KEY"] = "AIzaSyD6J10z6yVXGGk6CoiYcZFQ9L1l4arz90U"
+ 
 
 #%pip install --upgrade --quiet  langchain-google-genai
 
@@ -42,13 +41,16 @@ arxiv_wrapper = ArxivAPIWrapper(top_k_results=1,doc_content_chars_max=250)
 arxiv = ArxivQueryRun(api_wrapper=arxiv_wrapper)
  
 
-tools = [retrieval_tool]
+tools = [retrieval_tool, wiki, arxiv]
 
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv() # This correctly loads the key from your .env file into the environment
 import os
-os.environ["GOOGLE_API_KEY"] = "AIzaSyDRBNT_nsyuxMGekGKBJgTQvfFQ7wN054Y"
+# The hardcoded line that was here is now gone
 from langchain_google_genai import ChatGoogleGenerativeAI  
+
+
+ 
 
 
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.1)
