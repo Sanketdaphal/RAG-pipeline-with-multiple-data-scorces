@@ -4,7 +4,7 @@ from langchain_community.tools import WikipediaQueryRun
 from langchain_community.utilities import WikipediaAPIWrapper
 
 api_wrapper = WikipediaAPIWrapper(top_k_results=1,doc_content_chars_max=250)
-wiki = WikipediaQueryRun(api_wrapper=api_wrapper)
+wiki = WikipediaQueryRun(api_wrapper=api_wrapper,description="Use this tool for general knowledge questions about people, places, and historical events")
   
 
  
@@ -38,7 +38,7 @@ from langchain_community.tools import ArxivQueryRun
 from langchain_community.utilities import ArxivAPIWrapper   
 
 arxiv_wrapper = ArxivAPIWrapper(top_k_results=1,doc_content_chars_max=250)
-arxiv = ArxivQueryRun(api_wrapper=arxiv_wrapper)
+arxiv = ArxivQueryRun(api_wrapper=arxiv_wrapper,description = "Use this tool ONLY for highly technical questions about computer science, physics, or machine learning from scientific research papers.")
  
 
 tools = [retrieval_tool, wiki, arxiv]
